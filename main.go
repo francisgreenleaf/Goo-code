@@ -93,8 +93,8 @@ func (a *RefactoredAgent) RegisterTools() {
 	// Register file operation tools
 	a.toolRegistry.Register(file.NewReadFileTool())
 	a.toolRegistry.Register(file.NewListFilesTool())
+	a.toolRegistry.Register(file.NewEditFileTool())
 	// Note: Would register other tools here:
-	// a.toolRegistry.Register(file.NewEditFileTool())
 	// a.toolRegistry.Register(file.NewDuplicateFileTool())
 	// a.toolRegistry.Register(command.NewExecuteCommandTool())
 }
