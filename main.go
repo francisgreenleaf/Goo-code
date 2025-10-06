@@ -12,8 +12,9 @@ import (
 
 	"anthropic-chat/config"
 	"anthropic-chat/tools"
-	"anthropic-chat/tools/file"
 	"anthropic-chat/ui"
+
+	"anthropic-chat/tools/file"
 
 	"github.com/anthropics/anthropic-sdk-go"
 	"github.com/anthropics/anthropic-sdk-go/option"
@@ -94,9 +95,14 @@ func (a *RefactoredAgent) RegisterTools() {
 	a.toolRegistry.Register(file.NewReadFileTool())
 	a.toolRegistry.Register(file.NewListFilesTool())
 	a.toolRegistry.Register(file.NewEditFileTool())
-	// Note: Would register other tools here:
-	// a.toolRegistry.Register(file.NewDuplicateFileTool())
-	// a.toolRegistry.Register(command.NewExecuteCommandTool())
+	a.toolRegistry.Register(file.NewDuplicateFileTool())
+	a.toolRegistry.Register(file.NewExecuteCommandTool())
+	a.toolRegistry.Register(file.NewSearchFilesTool())
+	a.toolRegistry.Register(file.NewWriteFileTool())
+	a.toolRegistry.Register(file.NewCreateDirectoryTool())
+	a.toolRegistry.Register(file.NewMoveFileTool())
+	a.toolRegistry.Register(file.NewDeleteFileTool())
+	a.toolRegistry.Register(file.NewFindFilesTool())
 }
 
 // WorkingDir implements the ToolContext interface

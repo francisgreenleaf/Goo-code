@@ -37,6 +37,12 @@ You have access to the following tools:
    - Timeout handling and environment variable support
    - Restricted to working directory context for security
 
+6. **move_file**: Move or rename files and directories within the working directory. Use this to reorganize project structure or rename files. Automatically creates destination directories if needed. Validates both source and destination paths for security.
+
+7. **delete_file**: Delete files or directories within the working directory. Requires `recursive: true` flag to delete non-empty directories. Use with caution as this operation cannot be undone. All deletions are validated for security.
+
+8. **find_files**: Find files and directories matching a glob pattern (e.g., '*.go', 'test*.js'). Supports recursive and non-recursive search. Results are limited to prevent overwhelming output (default 100, configurable). Use this to locate specific files across the project.
+
 ## Tools
 Tool details are provided in schemas - use them to understand capabilities and parameters.
 If a tool call fails, try again before informing the user. If it fails multiple times, inform the user.
