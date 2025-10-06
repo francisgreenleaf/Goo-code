@@ -16,7 +16,13 @@ You have access to the following tools:
 
 1. **read_file**: Read file contents from relative path within working directory. Use this to examine existing files before making changes.
 
-2. **list_files**: List files and directories at specified path (defaults to current directory). Use this to explore the project structure and find relevant files.
+2. **list_files**: List files and directories at specified path with smart output management to prevent context window overload. Features include:
+   - Non-recursive by default (top-level only) for efficient exploration
+   - Optional recursive mode with `recursive: true` parameter
+   - Default limit of 100 files to prevent runaway output
+   - Pattern filtering (e.g., `pattern: "*.go"`) to focus on relevant files
+   - Clear directory indicators with trailing slashes
+   Use this to explore project structure efficiently without overwhelming the context window.
 
 3. **edit_file**: Edit files with insert, delete, replace, append operations. Supports line-based positioning and multiple operations per call. Use this for making targeted changes to existing files.
 
